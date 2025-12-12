@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useState } from "react"
+import { useEffect, useState, Suspense } from "react"
 import { useRouter, useSearchParams } from "next/navigation"
 import Link from "next/link"
 import Image from "next/image"
@@ -10,7 +10,7 @@ import { Separator } from "@/components/ui/separator"
 import { userOrdersAPI, getCurrentUser, authAPI, Order } from "@/lib/api"
 import { useToast } from "@/hooks/use-toast"
 
-export default function OrderConfirmationPage() {
+function OrderConfirmationContent() {
   const router = useRouter()
   const searchParams = useSearchParams()
   const { toast } = useToast()
@@ -367,5 +367,13 @@ export default function OrderConfirmationPage() {
         </div>
       </div>
     </main>
+  )
+}
+
+export default function OrderConfirmationPage() {
+  return (
+    <Suspense fallback={<div className="min-h-screen bg-background flex items-center justify-center"><p className="text-muted-foreground">Loading...</p></div>}>
+      <OrderConfirmationContent />
+    </Suspense>
   )
 }
