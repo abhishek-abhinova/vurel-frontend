@@ -1,0 +1,16 @@
+{
+  "headers": {
+    "x-nextjs-stale-time": "300",
+    "x-nextjs-prerender": "1",
+    "x-next-cache-tags": "_N_T_/layout,_N_T_/admin/layout,_N_T_/admin/shop-the-look/layout,_N_T_/admin/shop-the-look/page,_N_T_/admin/shop-the-look"
+  },
+  "segmentPaths": [
+    "/_tree",
+    "/_full",
+    "/admin/shop-the-look/__PAGE__",
+    "/admin/shop-the-look",
+    "/admin",
+    "/_index",
+    "/_head"
+  ]
+}

@@ -74,24 +74,26 @@ function OrderConfirmationContent() {
     return date.toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })
   }
 
+
+
   if (isLoading) {
     return (
-      <main className="min-h-screen bg-background flex items-center justify-center">
+      <div className="min-h-screen bg-background flex items-center justify-center">
         <p className="text-muted-foreground">Loading order details...</p>
-      </main>
+      </div>
     )
   }
 
   if (!order) {
     return (
-      <main className="min-h-screen bg-background flex items-center justify-center">
+      <div className="min-h-screen bg-background flex items-center justify-center">
         <div className="text-center">
           <p className="text-muted-foreground mb-4">Order not found</p>
           <Link href="/account/orders">
             <Button>View My Orders</Button>
           </Link>
         </div>
-      </main>
+      </div>
     )
   }
 
@@ -372,10 +374,8 @@ function OrderConfirmationContent() {
 
 export default function OrderConfirmationPage() {
   return (
-    <main className="min-h-screen bg-background">
-      <Suspense fallback={<div className="min-h-screen bg-background flex items-center justify-center"><p className="text-muted-foreground">Loading...</p></div>}>
-        <OrderConfirmationContent />
-      </Suspense>
-    </main>
+    <Suspense fallback={<div className="min-h-screen bg-background flex items-center justify-center"><p className="text-muted-foreground">Loading...</p></div>}>
+      <OrderConfirmationContent />
+    </Suspense>
   )
 }
