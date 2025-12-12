@@ -98,7 +98,7 @@ function OrderConfirmationContent() {
   const orderItems = Array.isArray(order.items) ? order.items : []
 
   return (
-    <main className="min-h-screen bg-background relative overflow-hidden">
+    <div className="min-h-screen bg-background relative overflow-hidden">
       {/* Confetti Animation */}
       {showConfetti && (
         <div className="fixed inset-0 pointer-events-none z-50">
@@ -366,14 +366,16 @@ function OrderConfirmationContent() {
           </p>
         </div>
       </div>
-    </main>
+    </div>
   )
 }
 
 export default function OrderConfirmationPage() {
   return (
-    <Suspense fallback={<div className="min-h-screen bg-background flex items-center justify-center"><p className="text-muted-foreground">Loading...</p></div>}>
-      <OrderConfirmationContent />
-    </Suspense>
+    <main className="min-h-screen bg-background">
+      <Suspense fallback={<div className="min-h-screen bg-background flex items-center justify-center"><p className="text-muted-foreground">Loading...</p></div>}>
+        <OrderConfirmationContent />
+      </Suspense>
+    </main>
   )
 }
